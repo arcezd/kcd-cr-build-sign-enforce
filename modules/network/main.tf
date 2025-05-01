@@ -29,7 +29,8 @@ resource "aws_subnet" "main" {
 
   map_public_ip_on_launch = each.value.public
 
-  tags = merge(local.common_tags, {
+  # use the private subnet tags if the subnet is private
+  tags = merge(local.common_tags, each.value.additional_tags, {
     Name = "${lower(var.stack_name)}-${each.key}"
   })
 }
@@ -94,7 +95,7 @@ resource "aws_nat_gateway" "nat_gw" {
 resource "aws_route" "nat_gw" {
   route_table_id         = aws_route_table.private.id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_nat_gateway.nat_gw.id
+  nat_gateway_id         = aws_nat_gateway.nat_gw.id
 
   depends_on = [
     aws_eip.nat_gw_ip
