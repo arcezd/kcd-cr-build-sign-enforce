@@ -69,7 +69,7 @@ remote_state {
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = get_env("TFSTATE_S3_BUCKET_REGION", "us-east-1")
     encrypt        = true
-    dynamodb_table = get_env("TFSTATE_DYNAMODB_TABLE", "tfstate-lock-table")
+    use_lockfile   = true
 
     s3_bucket_tags = {
       "GitRepoURL" = get_env("TF_VAR_git_repo_url", "Unknown")
