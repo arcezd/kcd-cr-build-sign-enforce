@@ -8,3 +8,18 @@ variable "cluster_version" {
   type        = string
   default     = "1.31"
 }
+
+variable "vpc_id" {
+  description = "The ID of the VPC"
+  type        = string
+}
+
+variable "subnet_ids" {
+  description = "List of subnet IDs"
+  type        = list(string)
+}
+
+variable control_plane_subnet_ids {
+  description = "List of control plane subnet IDs"
+  type        = list(string)
+}
