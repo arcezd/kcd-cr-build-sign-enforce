@@ -18,5 +18,7 @@ helm install kyverno kyverno/kyverno -n kyverno --create-namespace
 ```
 
 ### Additional resources
-- [Install Kyverno using Helm](https://kyverno.io/docs/installation/methods/#install-kyverno-using-helm)
+- [Harbor webpage](https://goharbor.io/)
 - [Harbor High Availability Guide](https://github.com/goharbor/harbor-helm/blob/main/docs/High%20Availability.md)
+- [Kyverno webpage](https://kyverno.io/)
+- [Install Kyverno using Helm](https://kyverno.io/docs/installation/methods/#install-kyverno-using-helm)
